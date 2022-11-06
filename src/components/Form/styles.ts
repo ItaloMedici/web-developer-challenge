@@ -14,13 +14,20 @@ export const FormStyled = styled.form`
 `
 
 export const ImageInput = styled.input`
+  display: none;
+`
+
+export const Image = styled.img`
   width: 88px;
   height: 88px;
   border-radius: 36px;
 
   border: 1px solid ${theme.color("gray400")};
+  object-fit: scale-down;
 
   margin-bottom: 16px;
+
+  cursor: pointer;
 `
 
 const inputCss = css`
@@ -80,3 +87,18 @@ export const DiscardButton = styled.button`
     background-color: ${theme.color("gray400")};
   }
 `;
+
+export const Portrait = styled.div`
+  position: relative;
+`
+
+export const DeleteImageButton = styled.button`
+  position: absolute;
+  left:104px;
+  top: 32px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`

@@ -19,6 +19,7 @@ export const PostImage = styled.img`
   width: 88px;
   height: 88px;
   border-radius: 36px;
+  object-fit: scale-down;
 `
 
 export const PostInfo = styled.div`

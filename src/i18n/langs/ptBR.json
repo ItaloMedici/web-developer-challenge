@@ -3,5 +3,6 @@
   "message": "Mensagem",
   "discard": "Descartar",
   "publish": "Publicar",
-  "feed": "Feed"
+  "feed": "Feed",
+  "sentBy": "Enviado Por"
 }

@@ -12,24 +12,29 @@ import {
 } from "./styles";
 
 import { ReactComponent as DeleteSVG } from "../../assets/delete.svg";
+import NonImageSVG from "../../assets/image.png";
+import { Post } from "../../models/Post";
+import { useIntl } from "react-intl";
+import { usePost } from "../../context/posts";
 
-const Card: React.FC = () => {
+const Card: React.FC<{ post: Post }> = ({ post }) => {
+  const { formatMessage } = useIntl();
+  const { deletePost } = usePost();
+
   return (
     <Container>
-      <DeleteButton>
+      <DeleteButton onClick={() => deletePost(post.id)}>
         <DeleteSVG />
       </DeleteButton>
       <Content>
-        <PostImage></PostImage>
+        <PostImage src={post?.imgURL ?? NonImageSVG} />
         <PostInfo>
           <Message>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            mattis ligula vel velit scelerisque iaculis. Nam mattis justo id
-            orci commodo, eu tempus purus cursus.
+            {post.message}
           </Message>
           <div>
-            <SentBy>Enviado Por</SentBy>
-            <Author>Manuela Oliveira</Author>
+            <SentBy>{formatMessage({id: "sentBy"})}</SentBy>
+            <Author>{post.author}</Author>
           </div>
         </PostInfo>
       </Content>
